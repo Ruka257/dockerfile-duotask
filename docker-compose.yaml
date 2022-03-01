@@ -1,0 +1,21 @@
+version: "3.6"
+services:
+  flask-app:
+    build: ./duoapp
+    ports:
+    - target: 5500
+      published: 5500
+      protocol: tcp
+      container_name: duoapp
+
+  nginx:
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+      container_name: nginx_container
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
