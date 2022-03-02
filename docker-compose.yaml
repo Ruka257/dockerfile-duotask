@@ -1,12 +1,12 @@
 version: "3.6"
 services:
   flask-app:
-    build: ./duoapp
+    build: ./duotask
     ports:
     - target: 5500
       published: 5500
       protocol: tcp
-      container_name: duoapp
+      container_name: duotask_container
 
   nginx:
     image: nginx:latest
